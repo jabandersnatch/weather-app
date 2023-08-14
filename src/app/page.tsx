@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '@/components/SearchBar';
+import WeatherCardSection from '@/components/WeatherCardSection';
 
 const Home = () => (
   <div className='flex flex-col items-center justify-center min-h-screen p-8 space-y-12 text-black dark:text-white'>
@@ -7,9 +8,7 @@ const Home = () => (
       Solvedex Weather App
     </h1>
     <SearchBar />
-    <h2 className='text-xl font-semibold text-center sm:text-2xl dark:text-white hover:text-cyan-500 transition-colors'>
-      Search your location and get the weather forecast
-    </h2>
+    <WeatherCardSection />
   </div>
 );
 

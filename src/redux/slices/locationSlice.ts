@@ -1,17 +1,19 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { LocationsResponse } from '@/types';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { Location, LocationsResponse } from '@/types';
 
 const API_ENDPOINT = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/geo/1.0/direct`;
 
 type LocationState = {
   data: LocationsResponse | null;
+  currentLocation: Location | null;
   isLoading: boolean;
   error: string;
 };
 
 const initialState: LocationState = {
   data: null,
+  currentLocation: null,
   isLoading: false,
   error: '',
 };
@@ -30,10 +32,16 @@ export const fetchLocationByName = createAsyncThunk(
   },
 );
 
+export const updateCurrentLocation = (state: LocationState, action: PayloadAction<Location>) => {
+  state.currentLocation = action.payload;
+};
+
 const locationSlice = createSlice({
   name: 'location',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentLocation: updateCurrentLocation,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchLocationByName.pending, (state) => {
@@ -51,4 +59,5 @@ const locationSlice = createSlice({
   },
 });
 
+export const { setCurrentLocation } = locationSlice.actions;
 export default locationSlice.reducer;

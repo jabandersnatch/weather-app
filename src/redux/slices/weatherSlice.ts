@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { WeatherResponse } from '@/types';
 
 const API_ENDPOINT = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/data/2.5/weather`;
-const { API_KEY } = process.env;
 
 type WeatherState = {
   data: WeatherResponse | null;
@@ -12,16 +11,61 @@ type WeatherState = {
 };
 
 const initialState: WeatherState = {
-  data: null,
+  data: {
+    coord: {
+      lon: -74.0836,
+      lat: 4.653,
+    },
+    weather: [
+      {
+        id: 803,
+        main: 'Clouds',
+        description: 'broken clouds',
+        icon: '04d',
+      },
+    ],
+    base: 'stations',
+    main: {
+      temp: 16.99,
+      feels_like: 16.08,
+      temp_min: 16.99,
+      temp_max: 16.99,
+      pressure: 1029,
+      humidity: 51,
+    },
+    visibility: 10000,
+    wind: {
+      speed: 4.12,
+      deg: 140,
+    },
+    clouds: {
+      all: 75,
+    },
+    dt: 1692025416,
+    sys: {
+      type: 1,
+      id: 8582,
+      country: 'CO',
+      sunrise: 1692010376,
+      sunset: 1692054564,
+    },
+    timezone: -18000,
+    id: 3678413,
+    name: 'La Merced',
+    cod: 200,
+  },
   isLoading: false,
   error: '',
 };
 
 export const fetchWeatherByCoords = createAsyncThunk(
   'weather/fetchWeatherByCoords',
-  async (params: { lat: number; lon: number }) => {
-    const { lat, lon } = params;
-    const url = `${API_ENDPOINT}?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+  async ({ lat, lon, units = 'standard' }: { lat: number; lon: number; units?: 'metric' | 'imperial' | 'standard' }) => {
+    if (lat === 0 || lon === 0) {
+      throw new Error('Invalid coordinates: Latitude and Longitude cannot be 0.');
+    }
+
+    const url = `${API_ENDPOINT}?lat=${lat}&lon=${lon}&units=${units}&appid=${process.env.NEXT_PUBLIC_API_KEY}`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.statusText);

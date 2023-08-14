@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useAppDispatch } from '@/redux/store';
-import { fetchLocationByName } from '@/redux/slices/locationSlice';
+import { fetchLocationByName, setCurrentLocation } from '@/redux/slices/locationSlice';
 import { LocationsResponse, Location } from '@/types';
 
 const SearchBar = () => {
@@ -44,6 +44,7 @@ const SearchBar = () => {
   const handleSelectLocation = (location: Location) => {
     setSearchValue(location.name);
     setShowSearchResult(false);
+    dispatch(setCurrentLocation(location));
   };
 
   return (
@@ -62,6 +63,7 @@ const SearchBar = () => {
         <div className='absolute z-10 w-full mt-2 bg-white rounded-md shadow-lg top-12'>
           {searchResult.map((location: Location) => (
             <div
+              key={`${location.name}-${location.country}-${`${location.lat}-${location.lon}`}`}
               role='button'
               tabIndex={0}
               className='px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white dark:bg-gray-700'
