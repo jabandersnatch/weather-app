@@ -2,8 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { LocationsResponse } from '@/types';
 
-const API_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/geo/1.0/direct`;
-const { API_KEY } = process.env;
+const API_ENDPOINT = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/geo/1.0/direct`;
 
 type LocationState = {
   data: LocationsResponse | null;
@@ -21,7 +20,7 @@ export const fetchLocationByName = createAsyncThunk(
   'location/fetchLocationByName',
   async (params: { name: string }) => {
     const { name } = params;
-    const url = `${API_ENDPOINT}?q=${name}&limit=5&appid=${API_KEY}`;
+    const url = `${API_ENDPOINT}?q=${name}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.statusText);

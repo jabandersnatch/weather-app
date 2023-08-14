@@ -26,8 +26,10 @@ const RootLayout = ({
     </head>
     <body className={inter.className}>
       <Providers>
-        <HeaderNav />
-        {children}
+        <main className='w-full p-8 bg-gray-300 text-black dark:bg-gray-800 dark:text-white'>
+          <HeaderNav />
+          {children}
+        </main>
       </Providers>
     </body>
   </html>

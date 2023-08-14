@@ -6,7 +6,7 @@ import LocationReducer from './slices/locationSlice';
 export const store = configureStore({
   reducer: {
     weather: WeatherReducer,
-    country: LocationReducer,
+    location: LocationReducer,
   },
 });
 
