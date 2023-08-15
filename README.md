@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather Across the World: A Next.js Application
 
-## Getting Started
+Welcome to my technical test project! This web application is designed to showcase the weather from around the globe using the OpenWeatherMap API. I've leveraged the power of React, TypeScript, TailwindCSS, and Redux to bring this project to life. Let's dive into the details.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Dynamic Search Bar**: Instead of loading thousands of locations on the client side, our search bar fetches location data on-the-go as you type. This not only enhances SEO performance but also improves usability.
+2. **Responsive Design**: Whether you're on mobile, tablet, desktop, or a wide monitor, this application adjusts beautifully, all thanks to the power of TailwindCSS.
+3. **Dark Mode Integration**: Experience the application in both light and dark themes. It adapts to your system preferences and also lets you choose your preferred mode.
+4. **Accurate Mockup Representation**: The design closely follows the Figma mockup provided, ensuring a seamless visual experience.
+5. **Toggle Metrics**: Switch between different metrics effortlessly without a hitch.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies & Tools
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 13 with App Router Paradigm**: This new approach in web development offers:
+  - [List all the benefits of the new approach here]
+- **TypeScript**: Enhancing JavaScript with static type definitions.
+- **TailwindCSS**: A utility-first CSS framework that makes designing responsive layouts a breeze.
+- **Redux**: For efficient, predictable state management.
+- **ESLint with Airbnb Config**: Ensuring code quality and consistency.
+- **Husky & Commitlint**: Leveraging git hooks to ensure high-quality commits.
+- **Cypress**: For end-to-end and integration testing with a mock API.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📈 Workflow & Best Practices
 
-## Learn More
+I believe in not just writing code, but crafting experiences. To ensure the highest quality:
 
-To learn more about Next.js, take a look at the following resources:
+- **Linting**: A custom ESLint configuration, heavily inspired by Airbnb's linter, ensures that the code remains clean and consistent.
+- **Commit Quality**: With Husky and Commitlint, every commit is ensured to be of high quality.
+- **Testing**: Comprehensive tests using Cypress ensure that the application runs flawlessly, simulating real-world scenarios with a mock API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Purpose
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The essence of this project is to demonstrate my approach to building web applications, emphasizing best practices, performance, and user experience. As a React FrontEnd developer, I strive to stay updated with the latest in the field, ensuring that I bring value to any team I join. This project is a testament to my skills, experience, and dedication to crafting meaningful digital experiences.
 
-## Deploy on Vercel
+🎥 Demo
+Experience the application in action! Check out the demo gif below:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Weather App Demo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This gif provides a quick overview of the application's main features and user interface. It's a great way to get a feel for the application without having to set it up locally.
+
+![Demo WeatherApp](./docs/demo.gif)
+
