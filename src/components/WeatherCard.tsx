@@ -12,13 +12,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherResponse, units }) => 
     weather, main, wind, name, dt, timezone,
   } = weatherResponse;
 
-  // Convert Unix timestamp to a Date object
   const date = new Date(dt * 1000);
+
+  const timeZoneString = `Etc/GMT${timezone > 0 ? '-' : '+'}${Math.abs(timezone / 3600)}`;
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     hour: '2-digit',
     minute: '2-digit',
-    timeZone: `Etc/GMT${timezone / 3600}`,
+    timeZone: timeZoneString,
   };
   const formattedDate = date.toLocaleDateString('en-US', options);
 
