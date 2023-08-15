@@ -12,6 +12,6 @@ describe('Mocked API spec', () => {
     cy.get('[data-cy="search-result-0"]').click();
     cy.get('#unit-select').select('imperial');
     cy.get('#unit-select').select('metric');
-    cy.get('img').should('have.attr', 'src').should('include', 'Snowy');
+    cy.get('[data-cy=weather-icon]').should('have.attr', 'src').should('include', 'Snowy');
   });
 });

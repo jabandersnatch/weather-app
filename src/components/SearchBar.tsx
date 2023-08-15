@@ -64,7 +64,7 @@ const SearchBar = () => {
       <div className='absolute z-10 w-full mt-2 bg-white rounded-md shadow-lg top-12' data-cy='search-result'>
         {searchResult.map((location: Location, index: number) => (
           <div
-            key={`${location.name}-${location.country}-${`${location.lat}-${location.lon}`}`}
+            key={`${location.name}-${location.country}-${`${location.lat}-${location.lon}-${index}`}`}
             role='button'
             tabIndex={0}
             className='px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white dark:bg-gray-700'

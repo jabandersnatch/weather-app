@@ -71,6 +71,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherResponse, units }) => 
         <Image
           src={handleImage(weather[0]).src}
           alt={handleImage(weather[0]).alt}
+          data-cy='weather-icon'
           width={100}
           height={100}
         />
